@@ -1,5 +1,5 @@
 export default {
-  footer: <p>By Khazak</p>,
+  footer: <p>@khazakdk on Discord</p>,
   head: ({ title, meta }) => (
     <>
       {meta.description && (
