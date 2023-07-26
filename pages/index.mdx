@@ -1,12 +1,43 @@
+import React, { useEffect } from 'react';
+
+export const Wowhead = () => {
+  useEffect(() => {
+    // Create a script element for the inline script
+    const inlineScript = document.createElement('script');
+    inlineScript.innerHTML = 'const whTooltips = {colorLinks: true, iconizeLinks: true, renameLinks: true};';
+    document.body.appendChild(inlineScript);
+
+    // Create a script element for the external script
+    const externalScript = document.createElement('script');
+    externalScript.src = 'https://wow.zamimg.com/js/tooltips.js';
+    document.body.appendChild(externalScript);
+
+    // Clean up the scripts when the component is unmounted
+    return () => {
+      document.body.removeChild(inlineScript);
+      document.body.removeChild(externalScript);
+    };
+  }, []);
+
+  return (
+    <>
+      foo
+      {/* Your other content here */}
+    </>
+  );
+};
+
+<Wowhead />
 # 10.1 Breath of Sindragosa Guide for Frost Death Knights
 By Khazakdk
+
 
 ## Introduction
 ### Who is this guide for?
 This guide is targeted towards players who are newer to the spec or long time Frost players who have avoided the Breath of Sindragosa build.
 
 ### What does this guide cover?
-This guide will primarily focus on Breath of Sindragosa gameplay, with smaller portions focused on gear and talents.  Other guides and resources sufficiently cover those subjects.  My main focus here will be teaching how to play the spec in PvE content with the aim of reducing some misconceptions about the builds.  Many players feel that BoS is either a 1 button playstyle that is too boring or is too punishing on the player for dealing with mechanics.  
+This guide will primarily focus on <a href="https://wowhead.com/spell=152279">Breath of Sindragosa</a> gameplay, with smaller portions focused on gear and talents.  Other guides and resources sufficiently cover those subjects.  My main focus here will be teaching how to play the spec in PvE content with the aim of reducing some misconceptions about the builds.  Many players feel that BoS is either a 1 button playstyle that is too boring or is too punishing on the player for dealing with mechanics.  
 
 ### Who am I?
 I am Khazak, a Death Knight main since I started playing in 5.4.  My notable contributions include working on the DK simc module, writing the Frost and Unholy modules for WoWAnalyzer, and helping in Acherus.     
@@ -14,26 +45,27 @@ I am Khazak, a Death Knight main since I started playing in 5.4.  My notable con
 ---
 ## Talents
 ### Death Knight class talents
+<a href="https://www.wowhead.com/talent-calc/embed/death-knight/frost/DAPFVBEBSEVBEFEhqUANVVJRFGFEVEYYEBQ">talent calc</a>
 ![](../images/classTalentsRaid.png)
-This is the standard class tree for Frost in the vast majority of raid content.  In order to path to all the throughput we will lose nearly all flexibility in the class tree.  However, if there is little magic damage then we can drop **Anti-Magic Zone** and **Assimilation** for alternatives.
+This is the standard class tree for Frost in the vast majority of raid content.  In order to path to all the throughput we will lose nearly all flexibility in the class tree.  However, if there is little magic damage then we can drop <a href="https://wowhead.com/spell=51052">Anti-Magic Zone</a> and <a href="https://wowhead.com/spell=374383">Assimilation</a> for alternatives.
 
-- **Blinding Sleet** is a good pickup in all keys, and can be taken in raid if the fight calls for it.
-- **Coldthirst** provides us a small amount of throughput and is the first swap to look to take if **AMZ** provides no value.
-- **Improved Death Strike** is very strong in the right situations.  It’s primary benefit to Frost is the RP cost reduction.  Not to say that the extra healing is bad, but because **Death Strike**'s healing is 25% of your recently taken damage, adding 60% of 25% damage taken ends up being underwhelming most of the time.  Because of this, **Improved Death Strike** will primarily be beneficial in M+, where it is more likely that both **AMZ** will be less valuable, and that the saved RP will add up to a significant amount over the course of the key.
+- <a href="https://wowhead.com/spell=207167">Blinding Sleet</a> is a good pickup in all keys, and can be taken in raid if the fight calls for it.
+- <a href="https://wowhead.com/spell=378848">Coldthirst</a> provides us a small amount of throughput and is the first swap to look to take if <a href="https://wowhead.com/spell=51052">Anti-Magic Zone</a> provides no value.
+- <a href="https://wowhead.com/spell=374277">Improved Death Strike</a> is very strong in the right situations.  It’s primary benefit to Frost is the RP cost reduction.  Not to say that the extra healing is bad, but because <a href="https://wowhead.com/spell=49998">Death Strike</a>'s healing is 25% of your recently taken damage, adding 60% of 25% damage taken ends up being underwhelming most of the time.  Because of this, <a href="https://wowhead.com/spell=374277">Improved Death Strike</a> will primarily be beneficial in M+, where it is more likely that both <a href="https://wowhead.com/spell=51052">Anti-Magic Zone</a> will be less valuable, and that the saved RP will add up to a significant amount over the course of the key.
 
 With these points considered, this would be a good general class tree to take into keys
 ![](../images/classTalentsKeys.png)
 
 ### Frost spec talents
 ![](../images/specTalents.png)
-Like the class tree, pathing to the mandatory talents severely restricts options.  The talents circled in green are build defining talents that cannot be dropped.  **Murdereous Efficiency** generates too many resources to ever consider dropping.  **Pillar of Frost** and **Icecap** are the primary damage amplifiers, and thus cannot be dropped.  **Avalanche** gives **Rune of Razorice** for free, enabling **Rune of Hysteria** to go on a weapon instead.  **Breath of Sindragosa** is of course mandatory as the namesake of the build.  This leaves 3 points to play with, **Fatal Fixation**, and 2/2 **Bonegrinder**.
-- **Chill Streak** (optionally with **Enduring Chill**).  In two target content, this is hands down the best talent.  But, there is a lack of 2T content available to right now.  **Frostwyrm’s Fury** will scale better into higher target counts, and **Chill Streak** is useless in single target.  An argument can be made to take this into keys with small pulls, but be aware it will not help you on bosses.
-- **Frostwhelp’s Indignation**.  Very solid pick if you can hit 4-5 targets with each **Pillar of Frost**.  
-- **Frostwyrm’s Fury** and **Absolute Zero**.  One point into FWF is better than 2/2 **Bonegrinder** in any multi target content.  With the 10.1 set bonus, this talent package stands out above the other optional talents. 
-- 2/2 **Bonegrinder**.  **Bonegrinder** is mainly a one point wonder, as the crit effect does not scale with points spent, only the frost damage does.  Putting two points into it is something only done for pure single target, where the talents emphasizing hitting multiple targets will of course not do much.
-- **Fatal Fixation** In high target count AoE situations, this talent will have less impact and can be dropped for something else.  
+Like the class tree, pathing to the mandatory talents severely restricts options.  The talents circled in green are build defining talents that cannot be dropped.  <a href="https://wowhead.com/spell=207167">Murdereous Efficiency</a> generates too many resources to ever consider dropping.  <a href="https://wowhead.com/spell=51271">Pillar of Frost</a> and <a href="https://wowhead.com/spell=207126">Icecap</a> are the primary damage amplifiers, and thus cannot be dropped.  <a href="https://wowhead.com/spell=207142">Avalanche</a> gives <a href="https://wowhead.com/spell=53343">Rune of Razorice</a> for free, enabling <a href="https://wowhead.com/spell=326911">Rune of Hysteria</a> to go on a weapon instead.  <a href="https://wowhead.com/spell=152279">Breath of Sindragosa</a> is of course mandatory as the namesake of the build.  This leaves 3 points to play with, <a href="https://wowhead.com/spell=405166">Fatal Fixation</a>, and 2/2 <a href="https://wowhead.com/spell=377098">Bonegrinder</a>.
+- <a href="https://wowhead.com/spell=305392">Chill Streak</a> (optionally with <a href="https://wowhead.com/spell=207167">Enduring Chill</a>).  In two target content, this is hands down the best talent.  But, there is a lack of 2T content available to right now.  <a href="https://wowhead.com/spell=279302">Frostwyrm’s Fury</a> will scale better into higher target counts, and <a href="https://wowhead.com/spell=305392">Chill Streak</a> is useless in single target.  An argument can be made to take this into keys with small pulls, but be aware it will not help you on bosses.
+- <a href="https://wowhead.com/spell=377226">Frostwhelp’s Aid</a>.  Very solid pick if you can hit 4-5 targets with each <a href="https://wowhead.com/spell=51271">Pillar of Frost</a>.  
+- <a href="https://wowhead.com/spell=279302">Frostwyrm’s Fury</a> and <a href="https://wowhead.com/spell=377047">Absolute Zero</a>.  One point into FWF is better than 2/2 <a href="https://wowhead.com/spell=377098">Bonegrinder</a> in any multi target content.  With the 10.1 set bonus, this talent package stands out above the other optional talents. 
+- 2/2 <a href="https://wowhead.com/spell=377098">Bonegrinder</a>.  <a href="https://wowhead.com/spell=377098">Bonegrinder</a> is mainly a one point wonder, as the crit effect does not scale with points spent, only the frost damage does.  Putting two points into it is something only done for pure single target, where the talents emphasizing hitting multiple targets will of course not do much.
+- <a href="https://wowhead.com/spell=405166">Fatal Fixation</a> In high target count AoE situations, this talent will have less impact and can be dropped for something else.  
 
-Considering these points, a build for something like Brackenhide Hollow would drop to 1/2 **Bonegrinder** and drop **Fatal Fixation** to take **Frostwyrm's Fury** and **Absolute Zero**.  
+Considering these points, a build for something like Brackenhide Hollow would drop to 1/2 <a href="https://wowhead.com/spell=377098">Bonegrinder</a> and drop <a href="https://wowhead.com/spell=405166">Fatal Fixation</a> to take <a href="https://wowhead.com/spell=207167">Frostwyrm's Fury</a> and <a href="https://wowhead.com/spell=377047">Absolute Zero</a>.  
 
 ---
 ## Why play Breath?
@@ -46,21 +78,21 @@ Breath is currently in something of an identity crisis.  For years it performed 
 ---
 ## Abilities and Rotation
 ### Priority list inside BoS
-- **Remorseless Winter**
-- **Howling Blast** with **Rime** if RP > 47 OR RP > 39 with **Rage of the Frozen Champion**
-- **Horn of Winter** if you have less than 2 Runes and will not waste RP
-- **Obliterate** if **Pillar of Frost** is up
-- **Obliterate** if at max **Killing Machine** stacks
-- **Obliterate** if RP will not be wasted
-- **Howling Blast** or if you have 1 rune and less than 38 rp (This gives one extra tick and is a very minor optimization)
+- <a href="https://wowhead.com/spell=196770">Remorseless Winter</a>
+- <a href="https://wowhead.com/spell=49184">Howling Blast</a> with <a href="https://wowhead.com/spell=59057">Rime</a> if RP > 47 OR RP > 39 with <a href="https://wowhead.com/spell=377076">Rage of the Frozen Champion</a>
+- <a href="https://wowhead.com/spell=57330">Horn of Winter</a> if you have less than 2 Runes and will not waste RP
+- <a href="https://wowhead.com/spell=49020">Obliterate</a> if <a href="https://wowhead.com/spell=51271">Pillar of Frost</a> is up
+- <a href="https://wowhead.com/spell=49020">Obliterate</a> if at max <a href="https://wowhead.com/spell=51128">Killing Machine</a> stacks
+- <a href="https://wowhead.com/spell=49020">Obliterate</a> if RP will not be wasted
+- <a href="https://wowhead.com/spell=49184">Howling Blast</a> or if you have 1 rune and less than 38 rp (This gives one extra tick and is a very minor optimization)
 ### Priority list outside BoS
-- **Frost Strike** to maintain **Icy Talons**/**Unleashed Frenzy**
-- **Remorseless Winter**
-- **Frost Strike** if not at max **Killing Machine** stacks
-- **Rime** if not at max **Killing Machine** stacks
-- **Obliterate** with **Killing Machine**
-- **Obliterate**
-- **Frost Strike**
+- <a href="https://wowhead.com/spell=49143">Frost Strike</a> to maintain <a href="https://wowhead.com/spell=194878">Icy Talons</a>/<a href="https://wowhead.com/spell=376905">Unleashed Frenzy</a>
+- <a href="https://wowhead.com/spell=196770">Remorseless Winter</a>
+- <a href="https://wowhead.com/spell=49143">Frost Strike</a> if not at max <a href="https://wowhead.com/spell=51128">Killing Machine</a> stacks
+- <a href="https://wowhead.com/spell=59057">Rime</a> if not at max <a href="https://wowhead.com/spell=51128">Killing Machine</a> stacks
+- <a href="https://wowhead.com/spell=49020">Obliterate</a> with <a href="https://wowhead.com/spell=51128">Killing Machine</a>
+- <a href="https://wowhead.com/spell=49020">Obliterate</a>
+- <a href="https://wowhead.com/spell=49143">Frost Strike</a>
 
 ---
 ## Resource Cooldowns
@@ -68,7 +100,7 @@ Frost has 4 major resource cooldowns: Empower Rune Weapon, Horn of Winter, Anti-
 - Horn of Winter is the simplest.  While instead Breath, you use it when you have no Runes, i.e. you cannot press Obliterate and you have no Rime procs to consume with RotFC.
 - Next easiest is AMZ, as this is usually assigned.  If not assigned, you want to use it when your raid will take enough magic damage to use most of the AMZ.  If given the choice of multiple points where this is true, then pick the spot that best matches where your resources will hit a lull.  For example, on mythic Raszageth it was usually best to AMZ on the second Hurricane Wing cast around 1:15 as the first cast would often cause RP to overcap and the third cast would necessitate using another resource cd early to still have breath up.  
 - AMS is usually straightforward to use.  To properly use it, you need to have some knowledge of what mechanics in the fight do magic damage.  Your goal is to use AMS close to off cooldown so you don’t lose casts, but also make sure you get a good use.  For the last 2 tiers we have had magic damage heavy content so it has become standard to get a full use out of AMS.
-- Lastly, ERW.  This is the hardest cooldown to pin down exactly when to use.  While the resources this grants are nice, its main benefit is the haste.  To put it into context, if breath is close to dying, ERW is just 15 RP on activation with another 15 RP on the next tick in 5 seconds.  Because of this, you want to use ERW a bit before you start to really run dry on resources.  The **sim** answer to this is to use ERW when you have less than 70 RP and less than 3 Runes.  However, on some fights you can anticipate having to deal with a mechanic or heavy movement during your breath.  In those situations, it is often advantageous to hold ERW and use it shortly before the mechanic to bolster your resources.  My advice would be to start with the sim timings, and then adjust ERW if you hit a sticking point.  Or, to look at some logs beforehand with a tool like lorrgs.io.  Now to turn to the next topic, what to do with the second charge?  In most situations, you should be using your first ERW with your first Pillar/Breath on pull with Bloodlust.  Below I have presented my evidence for this.  I need to stress the importance of this erw usage being lined up with lust.    
+- Lastly, ERW.  This is the hardest cooldown to pin down exactly when to use.  While the resources this grants are nice, its main benefit is the haste.  To put it into context, if breath is close to dying, ERW is just 15 RP on activation with another 15 RP on the next tick in 5 seconds.  Because of this, you want to use ERW a bit before you start to really run dry on resources.  The sim answer to this is to use ERW when you have less than 70 RP and less than 3 Runes.  However, on some fights you can anticipate having to deal with a mechanic or heavy movement during your breath.  In those situations, it is often advantageous to hold ERW and use it shortly before the mechanic to bolster your resources.  My advice would be to start with the sim timings, and then adjust ERW if you hit a sticking point.  Or, to look at some logs beforehand with a tool like lorrgs.io.  Now to turn to the next topic, what to do with the second charge?  In most situations, you should be using your first ERW with your first Pillar/Breath on pull with Bloodlust.  Below I have presented my evidence for this.  I need to stress the importance of this erw usage being lined up with lust.    
 
 | Lust + AMS/AMZ RP |
 | :----------------------: |
