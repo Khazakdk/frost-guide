@@ -16,13 +16,12 @@ export const Wowhead = () => {
     return () => {
       document.body.removeChild(inlineScript);
       document.body.removeChild(externalScript);
+      console.log('unmounted')
     };
   }, []);
 
   return (
     <>
-      foo
-      {/* Your other content here */}
     </>
   );
 };
@@ -45,8 +44,7 @@ I am Khazak, a Death Knight main since I started playing in 5.4.  My notable con
 ---
 ## Talents
 ### Death Knight class talents
-<a href="https://www.wowhead.com/talent-calc/embed/death-knight/frost/DAPFVBEBSEVBEFEhqUANVVJRFGFEVEYYEBQ">talent calc</a>
-![](../images/classTalentsRaid.png)
+<a href="https://www.wowhead.com/talent-calc/embed/death-knight/frost/DAPFVBEBSEVBEFEhqUAAA">talent calc</a>
 This is the standard class tree for Frost in the vast majority of raid content.  In order to path to all the throughput we will lose nearly all flexibility in the class tree.  However, if there is little magic damage then we can drop <a href="https://wowhead.com/spell=51052">Anti-Magic Zone</a> and <a href="https://wowhead.com/spell=374383">Assimilation</a> for alternatives.
 
 - <a href="https://wowhead.com/spell=207167">Blinding Sleet</a> is a good pickup in all keys, and can be taken in raid if the fight calls for it.
@@ -54,11 +52,11 @@ This is the standard class tree for Frost in the vast majority of raid content. 
 - <a href="https://wowhead.com/spell=374277">Improved Death Strike</a> is very strong in the right situations.  It’s primary benefit to Frost is the RP cost reduction.  Not to say that the extra healing is bad, but because <a href="https://wowhead.com/spell=49998">Death Strike</a>'s healing is 25% of your recently taken damage, adding 60% of 25% damage taken ends up being underwhelming most of the time.  Because of this, <a href="https://wowhead.com/spell=374277">Improved Death Strike</a> will primarily be beneficial in M+, where it is more likely that both <a href="https://wowhead.com/spell=51052">Anti-Magic Zone</a> will be less valuable, and that the saved RP will add up to a significant amount over the course of the key.
 
 With these points considered, this would be a good general class tree to take into keys
-![](../images/classTalentsKeys.png)
+<a href="https://www.wowhead.com/talent-calc/embed/death-knight/frost/DAPFVVEBSERBAFEhqUAAA">talent calc</a>
 
 ### Frost spec talents
-![](../images/specTalents.png)
-Like the class tree, pathing to the mandatory talents severely restricts options.  The talents circled in green are build defining talents that cannot be dropped.  <a href="https://wowhead.com/spell=207167">Murdereous Efficiency</a> generates too many resources to ever consider dropping.  <a href="https://wowhead.com/spell=51271">Pillar of Frost</a> and <a href="https://wowhead.com/spell=207126">Icecap</a> are the primary damage amplifiers, and thus cannot be dropped.  <a href="https://wowhead.com/spell=207142">Avalanche</a> gives <a href="https://wowhead.com/spell=53343">Rune of Razorice</a> for free, enabling <a href="https://wowhead.com/spell=326911">Rune of Hysteria</a> to go on a weapon instead.  <a href="https://wowhead.com/spell=152279">Breath of Sindragosa</a> is of course mandatory as the namesake of the build.  This leaves 3 points to play with, <a href="https://wowhead.com/spell=405166">Fatal Fixation</a>, and 2/2 <a href="https://wowhead.com/spell=377098">Bonegrinder</a>.
+<a href="https://www.wowhead.com/talent-calc/embed/death-knight/frost/DBAAAXIIOIDIMIDIKIFIBIGIFDFICDDGBIHIEDFDFIGGFDBIQIQDBhVBA">talent calc</a>
+Like the class tree, pathing to the mandatory talents severely restricts options.  The talents marked in green are build defining talents that cannot be dropped.  <a href="https://wowhead.com/spell=207167">Murdereous Efficiency</a> generates too many resources to ever consider dropping.  <a href="https://wowhead.com/spell=51271">Pillar of Frost</a> and <a href="https://wowhead.com/spell=207126">Icecap</a> are the primary damage amplifiers, and thus cannot be dropped.  <a href="https://wowhead.com/spell=207142">Avalanche</a> gives <a href="https://wowhead.com/spell=53343">Rune of Razorice</a> for free, enabling <a href="https://wowhead.com/spell=326911">Rune of Hysteria</a> to go on a weapon instead.  <a href="https://wowhead.com/spell=152279">Breath of Sindragosa</a> is of course mandatory as the namesake of the build.  This leaves 3 points to play with, <a href="https://wowhead.com/spell=405166">Fatal Fixation</a>, and 2/2 <a href="https://wowhead.com/spell=377098">Bonegrinder</a>.
 - <a href="https://wowhead.com/spell=305392">Chill Streak</a> (optionally with <a href="https://wowhead.com/spell=207167">Enduring Chill</a>).  In two target content, this is hands down the best talent.  But, there is a lack of 2T content available to right now.  <a href="https://wowhead.com/spell=279302">Frostwyrm’s Fury</a> will scale better into higher target counts, and <a href="https://wowhead.com/spell=305392">Chill Streak</a> is useless in single target.  An argument can be made to take this into keys with small pulls, but be aware it will not help you on bosses.
 - <a href="https://wowhead.com/spell=377226">Frostwhelp’s Aid</a>.  Very solid pick if you can hit 4-5 targets with each <a href="https://wowhead.com/spell=51271">Pillar of Frost</a>.  
 - <a href="https://wowhead.com/spell=279302">Frostwyrm’s Fury</a> and <a href="https://wowhead.com/spell=377047">Absolute Zero</a>.  One point into FWF is better than 2/2 <a href="https://wowhead.com/spell=377098">Bonegrinder</a> in any multi target content.  With the 10.1 set bonus, this talent package stands out above the other optional talents. 
@@ -96,46 +94,50 @@ Breath is currently in something of an identity crisis.  For years it performed 
 
 ---
 ## Resource Cooldowns
-Frost has 4 major resource cooldowns: Empower Rune Weapon, Horn of Winter, Anti-magic Shell, and Anti-magic Zone.  Understanding when to use them so as to not waste any of them is key to doing well on breath.
-- Horn of Winter is the simplest.  While instead Breath, you use it when you have no Runes, i.e. you cannot press Obliterate and you have no Rime procs to consume with RotFC.
-- Next easiest is AMZ, as this is usually assigned.  If not assigned, you want to use it when your raid will take enough magic damage to use most of the AMZ.  If given the choice of multiple points where this is true, then pick the spot that best matches where your resources will hit a lull.  For example, on mythic Raszageth it was usually best to AMZ on the second Hurricane Wing cast around 1:15 as the first cast would often cause RP to overcap and the third cast would necessitate using another resource cd early to still have breath up.  
-- AMS is usually straightforward to use.  To properly use it, you need to have some knowledge of what mechanics in the fight do magic damage.  Your goal is to use AMS close to off cooldown so you don’t lose casts, but also make sure you get a good use.  For the last 2 tiers we have had magic damage heavy content so it has become standard to get a full use out of AMS.
-- Lastly, ERW.  This is the hardest cooldown to pin down exactly when to use.  While the resources this grants are nice, its main benefit is the haste.  To put it into context, if breath is close to dying, ERW is just 15 RP on activation with another 15 RP on the next tick in 5 seconds.  Because of this, you want to use ERW a bit before you start to really run dry on resources.  The sim answer to this is to use ERW when you have less than 70 RP and less than 3 Runes.  However, on some fights you can anticipate having to deal with a mechanic or heavy movement during your breath.  In those situations, it is often advantageous to hold ERW and use it shortly before the mechanic to bolster your resources.  My advice would be to start with the sim timings, and then adjust ERW if you hit a sticking point.  Or, to look at some logs beforehand with a tool like lorrgs.io.  Now to turn to the next topic, what to do with the second charge?  In most situations, you should be using your first ERW with your first Pillar/Breath on pull with Bloodlust.  Below I have presented my evidence for this.  I need to stress the importance of this erw usage being lined up with lust.    
+Frost has 4 major resource cooldowns: <a href="https://wowhead.com/spell=47568">Empower Rune Weapon</a>, <a href="https://wowhead.com/spell=57330">Horn of Winter</a>, <a href="https://wowhead.com/spell=48707">Anti-Magic Shell</a>, and <a href="https://wowhead.com/spell=51052">Anti-Magic Zone</a> (with <a href="https://wowhead.com/spell=374383">Assimilation</a>).  Understanding when to use them so as to not waste any of them is key to doing well on breath.
+- <a href="https://wowhead.com/spell=57330">Horn of Winter</a> is the simplest.  While <a href="https://wowhead.com/spell=152279">Breath of Sindragosa</a> is active, you use it while you have no other Runic Power generating abilities to use on that GCD, i.e. you cannot press Obliterate due to lack of Runes and you have no Rime procs to consume with RotFC.  While it is a strong button, it's immediate impact is relatively low since it does no damage by itself and does not spend Runes to contribute to <a href="https://wowhead.com/spell=194192">Gathering Storm</a> or <a href="https://wowhead.com/spell=51271">Pillar of Frost</a> stacks.
+- Next easiest is <a href="https://wowhead.com/spell=51052">Anti-Magic Zone</a>, as this is usually assigned by healers.  If not assigned, you want to use it when your raid will take enough magic damage to use most of the AMZ.  If given the choice of multiple points where this is true, then pick the spot that best matches where your resources will hit a lull.  For example, on Mythic Raszageth it was usually best to <a href="https://wowhead.com/spell=51052">Anti-Magic Zone</a> on the second Hurricane Wing cast around 1:15 as the first cast would often cause RP to overcap and the third cast would require using another resource cooldown early.  
+- <a href="https://wowhead.com/spell=48707">Anti-Magic Shell</a> is usually straightforward to use.  To properly use it, you need to have some knowledge of what mechanics in the fight do magic damage.  The goal is to use <a href="https://wowhead.com/spell=48707">Anti-Magic Shell</a> close to off cooldown so as to not lose casts, but also make sure the the absorb is utilized.  For the last 2 tiers content heavy in magic damage occurs more often than not so it has become expected to get a full use out of <a href="https://wowhead.com/spell=48707">Anti-Magic Shell</a> in most situations.  However, getting a good use requires that the damage intake is high enough and this is not the case in lower keys or Heroic and lower raids.  
+- Lastly, <a href="https://wowhead.com/spell=47568">Empower Rune Weapon</a>.  This is the hardest cooldown to pin down exactly when to use.  While the resources this grants are nice, its main benefit is the haste.  To put it into context, if Runic Power is low, <a href="https://wowhead.com/spell=47568">Empower Rune Weapon</a> is just 15 RP on activation with another 15 RP on the next tick in 5 seconds.  Because of this, <a href="https://wowhead.com/spell=47568">Empower Rune Weapon</a> should be used a bit before resources start to really run dry.  The sim derived answer to when to use <a href="https://wowhead.com/spell=47568">Empower Rune Weapon</a> is with less than 70 RP and less than 3 Runes.  However, some fights have predictable moments of heavy movement or mechanical focus that prevent you from tunneling.  In those situations, it is often advantageous to hold <a href="https://wowhead.com/spell=47568">Empower Rune Weapon</a> and use it shortly before the mechanic to bolster resources.  My advice would be to start with the sim timings, and then adjust <a href="https://wowhead.com/spell=47568">Empower Rune Weapon</a> at particular sticking point.  Or, to look at some logs beforehand with a tool like lorrgs.io.  The proceeding advice is great for one charge, but about two charges?  In most situations, you should be using your first <a href="https://wowhead.com/spell=47568">Empower Rune Weapon</a> with your first Pillar/Breath on pull with Bloodlust.  Stacking haste cooldowns is quite potent, and it is better in the majority of situations to take consistently higher opener bursts than to try and sit on <a href="https://wowhead.com/spell=47568">Empower Rune Weapon</a> and desync its cooldown.
 
-| Lust + AMS/AMZ RP |
-| :----------------------: |
-| ![](../images/lustAmsSummary.png) |
-| ![](../images/lustAmsDefaultGraph.png) | Damage curve for default APL |   
-| ![](../images/lustAmsHoldGraph.png) | Damage curve for APL holding ERW |
+<details>
+  <summary>For those interested, click this section to see a compilation of sims exploring ERW usage</summary>
 
-There’s an obvious difference here.  Holding ERW is causing a noticeable dip in the burst peak at the start of the fight.  Stacking haste buffs is very potent, as anyone who’s played Unholy is aware and the same applies to frost.  The extra haste in the lust window lets you cycle more GCDs in your pillar to stack it higher, and makes rolling your GS stacks into a new RW more consistent.
+  | Lust + AMS/AMZ RP |
+  | :----------------------: |
+  | ![](../images/lustAmsSummary.png) |
+  | ![](../images/lustAmsDefaultGraph.png) | Damage curve for default APL |   
+  | ![](../images/lustAmsHoldGraph.png) | Damage curve for APL holding ERW |
 
-| No Lust + AMS/AMZ RP |
-| :----------------------: |
-| ![](../images/noLustAmsSummary.png) |
-| ![](../images/noLustAmsDefaultGraph.png) | Damage curve for default APL |   
-| ![](../images/noLustAmsHoldGraph.png) | Damage curve for APL holding ERW |
-   
+  There’s an obvious difference here.  Holding ERW is causing a noticeable dip in the burst peak at the start of the fight.  Stacking haste buffs is very potent, as anyone who’s played Unholy is aware and the same applies to frost.  The extra haste in the lust window lets you cycle more GCDs in your pillar to stack it higher, and makes rolling your GS stacks into a new RW more consistent.
 
-Without lust on pull, the difference becomes slight.  This would line up with a fight like Echo of Neltharion, where between the unlusted pull and frequent movement, you would want to save ERW.
+  | No Lust + AMS/AMZ RP |
+  | :----------------------: |
+  | ![](../images/noLustAmsSummary.png) |
+  | ![](../images/noLustAmsDefaultGraph.png) | Damage curve for default APL |   
+  | ![](../images/noLustAmsHoldGraph.png) | Damage curve for APL holding ERW |
+    
 
-| No Lust + No AMS/AMZ RP |
-| :----------------------: |
-| ![](../images/noLustNoAmsSummary.png) |
-| ![](../images/noLustNoAmsDefaultGraph.png) | Damage curve for default APL |   
-| ![](../images/noLustNoAmsHoldGraph.png) | Damage curve for APL holding ERW |
+  Without lust on pull, the difference becomes slight.  This would line up with a fight like Echo of Neltharion, where between the unlusted pull and frequent movement, you would want to save ERW.
 
-
-Almost not worth discussing this, I have included just to show the opposite of the claim, that without lust it is not worth using ERW early.
-
-| Lust + No AMS/AMZ RP |
-| :----------------------: |
-| ![](../images/lustNoAmsSummary.png) |
-| ![](../images/lustNoAmsDefaultGraph.png) | Damage curve for default APL |   
-| ![](../images/lustNoAmsHoldGraph.png) | Damage curve for APL holding ERW |
+  | No Lust + No AMS/AMZ RP |
+  | :----------------------: |
+  | ![](../images/noLustNoAmsSummary.png) |
+  | ![](../images/noLustNoAmsDefaultGraph.png) | Damage curve for default APL |   
+  | ![](../images/noLustNoAmsHoldGraph.png) | Damage curve for APL holding ERW |
 
 
-One final example just to emphasize that most of the gain is from stacking haste cooldowns.
+  Almost not worth discussing this, I have included just to show the opposite of the claim, that without lust it is not worth using ERW early.
+
+  | Lust + No AMS/AMZ RP |
+  | :----------------------: |
+  | ![](../images/lustNoAmsSummary.png) |
+  | ![](../images/lustNoAmsDefaultGraph.png) | Damage curve for default APL |   
+  | ![](../images/lustNoAmsHoldGraph.png) | Damage curve for APL holding ERW |
+
+
+  One final example just to emphasize that most of the gain is from stacking haste cooldowns.
+</details>
 
 
 ## Stats
