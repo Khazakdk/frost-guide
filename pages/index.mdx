@@ -16,7 +16,6 @@ export const Wowhead = () => {
     return () => {
       document.body.removeChild(inlineScript);
       document.body.removeChild(externalScript);
-      console.log('unmounted')
     };
   }, []);
 
@@ -98,42 +97,45 @@ Frost has 4 major resource cooldowns: <a href="https://wowhead.com/spell=47568">
 - <a href="https://wowhead.com/spell=57330">Horn of Winter</a> is the simplest.  While <a href="https://wowhead.com/spell=152279">Breath of Sindragosa</a> is active, you use it while you have no other Runic Power generating abilities to use on that GCD, i.e. you cannot press Obliterate due to lack of Runes and you have no Rime procs to consume with RotFC.  While it is a strong button, it's immediate impact is relatively low since it does no damage by itself and does not spend Runes to contribute to <a href="https://wowhead.com/spell=194192">Gathering Storm</a> or <a href="https://wowhead.com/spell=51271">Pillar of Frost</a> stacks.
 - Next easiest is <a href="https://wowhead.com/spell=51052">Anti-Magic Zone</a>, as this is usually assigned by healers.  If not assigned, you want to use it when your raid will take enough magic damage to use most of the AMZ.  If given the choice of multiple points where this is true, then pick the spot that best matches where your resources will hit a lull.  For example, on Mythic Raszageth it was usually best to <a href="https://wowhead.com/spell=51052">Anti-Magic Zone</a> on the second Hurricane Wing cast around 1:15 as the first cast would often cause RP to overcap and the third cast would require using another resource cooldown early.  
 - <a href="https://wowhead.com/spell=48707">Anti-Magic Shell</a> is usually straightforward to use.  To properly use it, you need to have some knowledge of what mechanics in the fight do magic damage.  The goal is to use <a href="https://wowhead.com/spell=48707">Anti-Magic Shell</a> close to off cooldown so as to not lose casts, but also make sure the the absorb is utilized.  For the last 2 tiers content heavy in magic damage occurs more often than not so it has become expected to get a full use out of <a href="https://wowhead.com/spell=48707">Anti-Magic Shell</a> in most situations.  However, getting a good use requires that the damage intake is high enough and this is not the case in lower keys or Heroic and lower raids.  
-- Lastly, <a href="https://wowhead.com/spell=47568">Empower Rune Weapon</a>.  This is the hardest cooldown to pin down exactly when to use.  While the resources this grants are nice, its main benefit is the haste.  To put it into context, if Runic Power is low, <a href="https://wowhead.com/spell=47568">Empower Rune Weapon</a> is just 15 RP on activation with another 15 RP on the next tick in 5 seconds.  Because of this, <a href="https://wowhead.com/spell=47568">Empower Rune Weapon</a> should be used a bit before resources start to really run dry.  The sim derived answer to when to use <a href="https://wowhead.com/spell=47568">Empower Rune Weapon</a> is with less than 70 RP and less than 3 Runes.  However, some fights have predictable moments of heavy movement or mechanical focus that prevent you from tunneling.  In those situations, it is often advantageous to hold <a href="https://wowhead.com/spell=47568">Empower Rune Weapon</a> and use it shortly before the mechanic to bolster resources.  My advice would be to start with the sim timings, and then adjust <a href="https://wowhead.com/spell=47568">Empower Rune Weapon</a> at particular sticking point.  Or, to look at some logs beforehand with a tool like lorrgs.io.  The proceeding advice is great for one charge, but about two charges?  In most situations, you should be using your first <a href="https://wowhead.com/spell=47568">Empower Rune Weapon</a> with your first Pillar/Breath on pull with Bloodlust.  Stacking haste cooldowns is quite potent, and it is better in the majority of situations to take consistently higher opener bursts than to try and sit on <a href="https://wowhead.com/spell=47568">Empower Rune Weapon</a> and desync its cooldown.
+- Lastly, <a href="https://wowhead.com/spell=47568">Empower Rune Weapon</a>.  This is the hardest cooldown to pin down exactly when to use.  While the resources this grants are nice, its main benefit is the haste.  To put it into context, if Runic Power is low, <a href="https://wowhead.com/spell=47568">Empower Rune Weapon</a> is just 15 RP on activation with another 15 RP on the next tick in 5 seconds.  Because of this, <a href="https://wowhead.com/spell=47568">Empower Rune Weapon</a> should be used a bit before resources start to really run dry.  The sim derived answer to when to use <a href="https://wowhead.com/spell=47568">Empower Rune Weapon</a> is with less than 70 RP and less than 3 Runes.  However, some fights have predictable moments of heavy movement or mechanical focus that prevent you from tunneling.  In those situations, it is often advantageous to hold <a href="https://wowhead.com/spell=47568">Empower Rune Weapon</a> and use it shortly before the mechanic to bolster resources.  My advice would be to start with the sim timings, and then adjust <a href="https://wowhead.com/spell=47568">Empower Rune Weapon</a> at particular sticking point.  Or, to look at some logs beforehand with a tool like <a href="https://lorrgs.io/spec_ranking/deathknight-frost/kazzara-the-hellforged">lorrgs.io</a>.  The proceeding advice is great for one charge, but about two charges?  In most situations, you should be using your first <a href="https://wowhead.com/spell=47568">Empower Rune Weapon</a> with your first Pillar/Breath on pull with Bloodlust.  Stacking haste cooldowns is quite potent, and it is better in the majority of situations to take consistently higher opener bursts than to try and sit on <a href="https://wowhead.com/spell=47568">Empower Rune Weapon</a> and desync its cooldown.
+
+To tie all that together, I have annotated some graphs from Warcraft Logs showing <a href="https://wowhead.com/spell=152279">Breath of Sindragosa</a> uptime along with Runic Power over the course of the fight.  The important takeaway from this aid is to know the importance of spacing out the resoure cooldowns to avoid wasting Runic Power.
+![warcraft logs graph of resource cooldown usage](../images/sampleLog.png)
 
 <details>
   <summary>For those interested, click this section to see a compilation of sims exploring ERW usage</summary>
 
   | Lust + AMS/AMZ RP |
   | :----------------------: |
-  | ![](../images/lustAmsSummary.png) |
-  | ![](../images/lustAmsDefaultGraph.png) | Damage curve for default APL |   
-  | ![](../images/lustAmsHoldGraph.png) | Damage curve for APL holding ERW |
+  | ![simc report comparing APLs](../images/lustAmsSummary.png) |
+  | ![Damage curve for default APL](../images/lustAmsDefaultGraph.png) |   
+  | ![Damage curve for APL holding ERW](../images/lustAmsHoldGraph.png) |
 
   There’s an obvious difference here.  Holding ERW is causing a noticeable dip in the burst peak at the start of the fight.  Stacking haste buffs is very potent, as anyone who’s played Unholy is aware and the same applies to frost.  The extra haste in the lust window lets you cycle more GCDs in your pillar to stack it higher, and makes rolling your GS stacks into a new RW more consistent.
 
   | No Lust + AMS/AMZ RP |
   | :----------------------: |
-  | ![](../images/noLustAmsSummary.png) |
-  | ![](../images/noLustAmsDefaultGraph.png) | Damage curve for default APL |   
-  | ![](../images/noLustAmsHoldGraph.png) | Damage curve for APL holding ERW |
+  | ![simc report comparing APLs](../images/noLustAmsSummary.png) |
+  | ![Damage curve for default APL](../images/noLustAmsDefaultGraph.png) |  |   
+  | ![Damage curve for APL holding ERW](../images/noLustAmsHoldGraph.png) |  |
     
 
   Without lust on pull, the difference becomes slight.  This would line up with a fight like Echo of Neltharion, where between the unlusted pull and frequent movement, you would want to save ERW.
 
   | No Lust + No AMS/AMZ RP |
   | :----------------------: |
-  | ![](../images/noLustNoAmsSummary.png) |
-  | ![](../images/noLustNoAmsDefaultGraph.png) | Damage curve for default APL |   
-  | ![](../images/noLustNoAmsHoldGraph.png) | Damage curve for APL holding ERW |
+  | ![simc report comparing APLs](../images/noLustNoAmsSummary.png) |
+  | ![Damage curve for default APL](../images/noLustNoAmsDefaultGraph.png) | 
+  | ![Damage curve for APL holding ERW](../images/noLustNoAmsHoldGraph.png) | 
 
 
   Almost not worth discussing this, I have included just to show the opposite of the claim, that without lust it is not worth using ERW early.
 
   | Lust + No AMS/AMZ RP |
   | :----------------------: |
-  | ![](../images/lustNoAmsSummary.png) |
-  | ![](../images/lustNoAmsDefaultGraph.png) | Damage curve for default APL |   
-  | ![](../images/lustNoAmsHoldGraph.png) | Damage curve for APL holding ERW |
+  | ![simc report comparing APLs](../images/lustNoAmsSummary.png) |
+  | ![Damage curve for default APL](../images/lustNoAmsDefaultGraph.png) | 
+  | ![Damage curve for APL holding ERW](../images/lustNoAmsHoldGraph.png) | 
 
 
   One final example just to emphasize that most of the gain is from stacking haste cooldowns.
@@ -156,13 +158,13 @@ Not much to stay here.  It’s a boring and expensive stat.
 
 ## Gearing
 Sim yourself.  All gearing can and should be handled by using Top Gear and Droptimizer on <a href="raidbots.com">raidbots.com</a> to see what’s going to be good for your specific character.  I will briefly cover some high value items to inform <a href="https://wowhead.com/item=204440">Spark of Shadowflame</a> use.
-- <a href="https://wowhead.com/item=190501">Primal Molten Greatbelt</a>
-- <a href="https://wowhead.com/item=190496">Primal Molten Sabatons</a>
+- <a href="https://wowhead.com/item=190501">Primal Molten Greatbelt</a> with <a href="https://wowhead.com/item=204710">Shadowflame-Tempered Armor Patch</a>
+- <a href="https://wowhead.com/item=190496">Primal Molten Sabatons</a> with <a href="https://wowhead.com/item=204710">Shadowflame-Tempered Armor Patch</a>
 - <a href="https://wowhead.com/item=190518">Obsidian Seared Slicer</a>
 - <a href="https://wowhead.com/item=192999">Signet of Titanic Insight</a>/<a href="https://wowhead.com/item=193000">Ring-Bound Hourglass</a>
 
 <a href="https://wowhead.com/item=204211">Neltharion's Call to Suffering</a> and <a href="https://wowhead.com/item=203729">Ominous Chromatic Essence</a> are the ideal trinkets to have if possible
 
 ## Consumes
-<a href="https://wowhead.com/item=191329">Iced Phial of Corrupting Rage</a>  is incredibly good for us.  Dropping this Phial would be **worse** than taking off a mythic item level weapon and replacing it with a normal item level weapon.  <a href="https://wowhead.com/item=194823">Buzzing Rune</a> for the temporary enchant.  Sim yourself for gems and enchants.  For Runeforges, take 1 <a href="https://wowhead.com/spell=53344">Rune of the Fallen Crusader</a>  and 1 <a href="https://wowhead.com/spell=326911">Rune of the Fallen Crusader</a>
+<a href="https://wowhead.com/item=191329">Iced Phial of Corrupting Rage</a>  is incredibly good for us.  Dropping this Phial would be **worse** than taking off a mythic item level weapon and replacing it with a normal item level weapon.  <a href="https://wowhead.com/item=194823">Buzzing Rune</a> for the temporary enchant.  Sim yourself for gems and enchants.  For Runeforges, take <a href="https://wowhead.com/spell=53344">Rune of the Fallen Crusader</a>  and <a href="https://wowhead.com/spell=326911">Rune of the Fallen Crusader</a>
   
