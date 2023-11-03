@@ -1,0 +1,120 @@
+{/* ---
+type: page
+title: 10.2 Obliteration Guide for Frost Death Knights
+date: 2023-10-08
+--- */}
+
+import React, { useEffect } from 'react';
+
+export const Wowhead = () => {
+  useEffect(() => {
+    const inlineScript = document.createElement('script');
+    inlineScript.innerHTML = 'const whTooltips = {colorLinks: true, iconizeLinks: true, renameLinks: true};';
+
+    const externalScript = document.createElement('script');
+    externalScript.src = 'https://wow.zamimg.com/js/tooltips.js'
+
+    if (!window.whTooltips) {
+      document.body.appendChild(inlineScript);
+      document.body.appendChild(externalScript);
+      window.whTooltips = true;
+    }
+
+    return () => {
+      if (window.whTooltips) {
+        document.body.removeChild(inlineScript);
+        document.body.removeChild(externalScript);
+      }
+    };
+  }, []);
+
+  return (
+    <>
+    </>
+  );
+};
+
+<Wowhead />
+# 10.2 Obliteration Guide for Frost Death Knights
+By Khazakdk
+
+## Introduction
+### What does this guide cover?
+This guide will primarily focus on <a href="https://wowhead.com/spell=281238">Obliteration</a> gameplay, with smaller portions focused on gear and talents.  Other guides and resources sufficiently cover those subjects.
+
+### Who am I?
+I am Khazak, a Death Knight main since I started playing in 5.4.  My notable contributions include working on the DK simc module, writing the Frost and Unholy modules for WoWAnalyzer, and helping in Acherus.     
+
+---
+## Talents
+### Death Knight class talents
+<a href="https://www.wowhead.com/talent-calc/embed/death-knight/frost/DAPFVREBSEVBAFEhqUAAA">talent calc</a>
+This is the standard class tree for Frost in the vast majority of content.  In order to path to all the throughput we will lose nearly all flexibility in the class tree.  However, if there is little magic damage then we can drop <a href="https://wowhead.com/spell=51052">Anti-Magic Zone</a> for alternatives.  In raid content <a href="https://www.wowhead.com/spell=207167">Blinding Sleet</a> is often not needed and can be dropped for something else.
+
+- <a href="https://wowhead.com/spell=374277">Improved Death Strike</a> is very strong in the right situations.  It’s primary benefit to Frost is the RP cost reduction.  Not to say that the extra healing is bad, but because <a href="https://wowhead.com/spell=49998">Death Strike</a>'s healing is 25% of your recently taken damage, adding 60% of 25% damage taken ends up being underwhelming most of the time.  Because of this, <a href="https://wowhead.com/spell=374277">Improved Death Strike</a> will primarily be beneficial in M+, where it is more likely that both <a href="https://wowhead.com/spell=51052">Anti-Magic Zone</a> will be less valuable, and that the saved RP will add up to a significant amount over the course of the key.
+- <a href="https://www.wowhead.com/spell=391546">March of Darkness</a> is a cheap mobility boost.  If you do not need anything else, this is a good point to default to.
+- <a href="https://www.wowhead.com/spell=221562">Asphyxiate</a> is unfortunately hard to justify taking as other classes have better access to stuns but if you really need a stun and don't have a use for <a href="https://wowhead.com/spell=51052">Anti-Magic Zone</a> then it's there.  
+
+With these points considered, this would be a good general class tree to take to most content.  If you are in pure single target, you can take <a href="https://www.wowhead.com/spell=343294">Soul Reaper</a> instead of <a href="https://www.wowhead.com/spell=383269">Abomination Limb</a>
+
+<a href="https://www.wowhead.com/talent-calc/embed/death-knight/frost/DAPFVRUBSERBAFEhqUAAA">talent calc</a>
+
+
+### Frost spec talents
+<a href="https://www.wowhead.com/talent-calc/embed/death-knight/frost/DBAAAZIIOIDIMIDIKIBIFIGICDCDFICDDDBIDIDIBDCDFDFDGIFDKIQDBhVAA">talent calc</a>
+Like the class tree, pathing to the mandatory talents severely restricts options.  The talents marked in green are build defining talents that cannot be dropped.  Talents marked in blue need to taken to get to the talents in green.  <a href="https://wowhead.com/spell=51271">Pillar of Frost</a> is your primary way doing damage, and thus <a href="https://wowhead.com/spell=207126">Icecap</a> is a must pick to give more uses.  <a href="https://wowhead.com/spell=207142">Avalanche</a> gives <a href="https://wowhead.com/spell=53343">Rune of Razorice</a> for free, a key enabler for 2H.  <a href="https://wowhead.com/spell=305392">Chill Streak</a> is a must pick because our tier bonus is useless without it.  <a href="https://wowhead.com/spell=281238">Obliteration</a> is of course mandatory as the namesake of the build.  <a href="https://wowhead.com/spell=207061">Murderous Efficiency</a> generates too many resources to ever consider dropping.  <a href="https://wowhead.com/spell=405166">Fatal Fixation</a> prevents a significant amount of <a href="https://wowhead.com/spell=51128">Killing Machine</a> procs from going to waste, critical in a build that revolves around <a href="https://wowhead.com/spell=51128">Killing Machine</a>.  Frost is really only left with 2 flexible points here, the 2 in <a href="https://wowhead.com/spell=377190">Enduring Strength</a>.  From this point in the tree, there are really only a few options.
+
+- <a href="https://www.wowhead.com/spell=194913">Glacial Advance</a> will be taken anytime there is consistently more than 1 target available to hit.
+- <a href="https://wowhead.com/spell=47568">Empower Rune Weapon</a> is a default pickup in raid encounters.  It provides enough haste to fit another Killing Machine into a <a href="https://wowhead.com/spell=51271">Pillar of Frost</a> window and the second charge is a significant boost to opening burst by stacking the haste buff throughout the lust window. 
+<a href="https://wowhead.com/spell=377190">Enduring Strength</a> can be dropped to 1/2 to free up points.  Taking 2/2 is the default option, but because damage is focused on <a href="https://wowhead.com/spell=51271">Pillar of Frost</a> windows it is one of the easiest single points to give up to take an additional talent elsewhere, usually an AoE talent since <a href="https://wowhead.com/spell=316916">Cleaving Strikes</a> should not active outside of <a href="https://wowhead.com/spell=51271">Pillar of Frost</a> making this node very lackluster for AoE.
+- <a href="https://wowhead.com/spell=377376">Enduring Chill</a> is a better option in small AoE encounters.  <a href="https://wowhead.com/spell=305392">Chill Streak</a> does not scale with the number of targets so we only take this when a second charge of <a href="https://wowhead.com/spell=47568">Empower Rune Weapon</a> makes less sense, particularly in keys where th long encounter time devalues the extra cast of <a href="https://wowhead.com/spell=47568">Empower Rune Weapon</a>.  Right now the gap between <a href="https://wowhead.com/spell=377376">Enduring Chill</a> and the second <a href="https://wowhead.com/spell=47568">Empower Rune Weapon</a> charge is very close, if you are doing content where <a href="https://wowhead.com/spell=305392">Chill Streak</a> shines then <a href="https://wowhead.com/spell=377376">Enduring Chill</a> is worth serious consideration.
+- <a href="https://wowhead.com/spell=279302">Frostwyrm’s Fury</a> will be great if you can hit large add packs on a reliable interval.  Fine for keys, but be careful picking this up in raid.  Its fun to pad, but has an expensive opportunity cost for boss damage.
+
+---
+## Abilities and Rotation
+### High Priority things to do at all times
+- Maintain <a href="https://wowhead.com/spell=194878">Icy Talons</a>/<a href="https://wowhead.com/spell=376905">Unleashed Frenzy</a> 
+- <a href="https://wowhead.com/spell=196770">Remorseless Winter</a> off CD if <a href="https://wowhead.com/spell=194912">Gathering Storm</a> is talented (It will be in 10.2)
+
+
+### Priority list inside Pillar
+- <a href="https://wowhead.com/spell=49184">Howling Blast</a> if you have <a href="https://wowhead.com/spell=59057">Rime</a> and if <a href="https://wowhead.com/spell=51271">Pillar of Frost</a> has less than one GCD left, and if you have less than 2 <a href="https://wowhead.com/spell=51128">Killing Machine</a> stacks
+- <a href="https://wowhead.com/spell=49143">Frost Strike</a> (<a href="https://www.wowhead.com/spell=194913">Glacial Advance</a> against 2+ targets) if <a href="https://wowhead.com/spell=51271">Pillar of Frost</a> has less than one GCD left, and if you have less than 2 <a href="https://wowhead.com/spell=51128">Killing Machine</a> stacks
+- <a href="https://wowhead.com/spell=49020">Obliterate</a> with a <a href="https://wowhead.com/spell=51128">Killing Machine</a> proc
+- <a href="https://www.wowhead.com/spell=343294">Soul Reaper</a> when off CD and target will be under 35% HP when the debuff expires
+- <a href="https://www.wowhead.com/spell=194913">Glacial Advance</a> if there are 2+ targets or if Razorice is under 5 stacks
+- <a href="https://wowhead.com/spell=49143">Frost Strike</a> if you have less than 2 Runes 
+- <a href="https://wowhead.com/spell=49184">Howling Blast</a> with <a href="https://wowhead.com/spell=59057">Rime</a>
+- <a href="https://wowhead.com/spell=49143">Frost Strike</a>
+- <a href="https://wowhead.com/spell=49184">Howling Blast</a>
+
+### Priority list outside Pillar
+- <a href="https://wowhead.com/spell=49020">Obliterate</a> with a <a href="https://wowhead.com/spell=51128">Killing Machine</a> proc
+- <a href="https://wowhead.com/spell=49143">Frost Strike</a> (<a href="https://www.wowhead.com/spell=194913">Glacial Advance</a> against 2+ targets) to avoid overcapping RP
+- <a href="https://wowhead.com/spell=49184">Howling Blast</a> with <a href="https://wowhead.com/spell=59057">Rime</a>
+- <a href="https://wowhead.com/spell=49020">Obliterate</a> without <a href="https://wowhead.com/spell=51128">Killing Machine</a> to dump Runes
+- <a href="https://wowhead.com/spell=49143">Frost Strike</a> (<a href="https://www.wowhead.com/spell=194913">Glacial Advance</a> against 2+ targets)
+
+
+---
+## Cooldowns
+- <a href="https://www.wowhead.com/spell=4658">Raise Dead</a> Macro this to <a href="https://wowhead.com/spell=51271">Pillar of Frost</a> and forget about it.
+- <a href="https://wowhead.com/spell=51271">Pillar of Frost</a> Use whenever it's available.  Delaying this cooldown is very bad, as it will delay the Icecap driven CDR from the KMs generated in the <a href="https://wowhead.com/spell=51271">Pillar of Frost</a> window.  This adds up over a fight and can result in entire casts missing.  Only delay it if you cannot complete the <a href="https://wowhead.com/spell=51271">Pillar of Frost</a> window due to a planned mechanic.  
+- <a href="https://wowhead.com/spell=47568">Empower Rune Weapon</a>.  You should pair this with <a href="https://wowhead.com/spell=51271">Pillar of Frost</a> whenever possible.  The resources are nice, but the main value is the haste buff that will let you comfortably fit another GCD in your <a href="https://wowhead.com/spell=51271">Pillar of Frost</a> window.
+- <a href="https://wowhead.com/spell=305392">Chill Streak</a> when it is available
+
+## Stats
+Before going any further, SIM YOURSELF.  Numerous factors go into the value of each stat and trying to come up with a value is best left to using a computer to solve for each particular situation.  Sometimes a general trend can be found, but this is not always the case.  The following description of each secondary is in no particular order.
+#### Mastery
+Simply increases frost damage done.  This only affects spells specific to the Frost spec and will not increase frost damage from items or other effects that originate outside of the spec.  It is often a better stat to pick up in AoE since Frost's primary multi target spells are frost damage.  Frost prefers mastery to versatility because of how mastery points work.  It takes 180 mastery rating to gain 1 mastery point, which converts to 2% mastery on your sheet.  Versatility takes 205 rating to gain 1% damage.
+#### Critical Strike
+Does what it says on the tin but has some extra benefits for Frost.  It’s primary extra benefit outside of the raw damage increase is crit gives more <a href="https://wowhead.com/spell=51128">Killing Machine</a> procs, and this has knock-on effects like more chances for <a href="https://wowhead.com/spell=207061">Murderous Efficiency</a> procs for Runes.  <a href="https://wowhead.com/spell=281238">Obliteration</a> has a unique relationship with crit, as its value is severely diminished during <a href="https://wowhead.com/spell=51271">Pillar of Frost</a> when most globals are guaranteed to be critical strikes anyways.  
+#### Haste
+Speeds up auto attacks, GCD, and Rune regeneration rate.  The primary benefit you will see is the sped up GCD.  Rune regeneration is determined by `(10 / 1 + haste)`.  So with 10% haste we get a rune cooldown of `(10 / 1 + .10) = 9.09s`.  This same formula governs GCD however.  As we get Runes back faster, we can spend them faster.  <a href="https://wowhead.com/spell=281238">Obliteration</a> gains an extra global inside of <a href="https://wowhead.com/spell=51271">Pillar of Frost</a> Windows every 12.5%.
+
+#### Versatility
+Not much to stay here.  It’s a boring and expensive stat.
+
+## Consumes
+<a href="https://wowhead.com/item=191329">Iced Phial of Corrupting Rage</a>  is incredibly good for us.  <a href="https://wowhead.com/item=194823">Buzzing Rune</a> for the temporary enchant.  Sim yourself for gems and enchants.  For Runeforges, Take <a href="https://wowhead.com/spell=53344">Rune of the Fallen Crusader</a> as your Runeforge.
+  

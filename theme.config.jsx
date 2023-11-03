@@ -1,5 +1,5 @@
 export default {
-  footer: <p>@khazakdk on Discord</p>,
+  footer: <p>@khazakdk on Discord, <a href="https://twitter.com/Khazakdk" rel="author" target="_blank">@Khazakdk</a></p>,
   head: ({ title, meta }) => (
     <>
       {meta.description && (
