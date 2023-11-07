@@ -4,37 +4,8 @@ title: 10.2 Obliteration Guide for Frost Death Knights
 date: 2023-10-08
 --- */}
 
-import React, { useEffect } from 'react';
+import React from 'react';
 
-export const Wowhead = () => {
-  useEffect(() => {
-    const inlineScript = document.createElement('script');
-    inlineScript.innerHTML = 'const whTooltips = {colorLinks: true, iconizeLinks: true, renameLinks: true};';
-
-    const externalScript = document.createElement('script');
-    externalScript.src = 'https://wow.zamimg.com/js/tooltips.js'
-
-    if (!window.whTooltips) {
-      document.body.appendChild(inlineScript);
-      document.body.appendChild(externalScript);
-      window.whTooltips = true;
-    }
-
-    return () => {
-      if (window.whTooltips) {
-        document.body.removeChild(inlineScript);
-        document.body.removeChild(externalScript);
-      }
-    };
-  }, []);
-
-  return (
-    <>
-    </>
-  );
-};
-
-<Wowhead />
 # 10.2 Obliteration Guide for Frost Death Knights
 By Khazakdk
 
@@ -86,7 +57,7 @@ Like the class tree, pathing to the mandatory talents severely restricts options
 - <a href="https://www.wowhead.com/spell=194913">Glacial Advance</a> if there are 2+ targets or if Razorice is under 5 stacks
 - <a href="https://wowhead.com/spell=49143">Frost Strike</a> if you have less than 2 Runes 
 - <a href="https://wowhead.com/spell=49184">Howling Blast</a> with <a href="https://wowhead.com/spell=59057">Rime</a>
-- <a href="https://wowhead.com/spell=49143">Frost Strike</a>
+- <a href="https://wowhead.com/spell=49143">Frost Strike</a>  (<a href="https://www.wowhead.com/spell=194913">Glacial Advance</a> against 2+ targets)
 - <a href="https://wowhead.com/spell=49184">Howling Blast</a>
 
 ### Priority list outside Pillar

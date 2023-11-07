@@ -4,34 +4,8 @@ title: 10.1 Breath of Sindragosa Guide for Frost Death Knights
 date: 2023-10-08
 ---
 
-import React, { useEffect } from 'react';
+import React from 'react';
 
-export const Wowhead = () => {
-  useEffect(() => {
-    // Create a script element for the inline script
-    const inlineScript = document.createElement('script');
-    inlineScript.innerHTML = 'const whTooltips = {colorLinks: true, iconizeLinks: true, renameLinks: true};';
-    document.body.appendChild(inlineScript);
-
-    // Create a script element for the external script
-    const externalScript = document.createElement('script');
-    externalScript.src = 'https://wow.zamimg.com/js/tooltips.js';
-    document.body.appendChild(externalScript);
-
-    // Clean up the scripts when the component is unmounted
-    return () => {
-      document.body.removeChild(inlineScript);
-      document.body.removeChild(externalScript);
-    };
-  }, []);
-
-  return (
-    <>
-    </>
-  );
-};
-
-<Wowhead />
 # 10.1 Breath of Sindragosa Guide for Frost Death Knights
 By Khazakdk
 
