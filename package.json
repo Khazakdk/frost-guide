@@ -12,11 +12,12 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "next": "^13.4.12",
-    "nextra": "^2.10.0",
-    "nextra-theme-blog": "^2.10.0",
-    "nextra-theme-docs": "^2.10.0",
+    "next": "^14.0.1",
+    "nextra": "^2.13.2",
+    "nextra-theme-blog": "^2.13.2",
+    "nextra-theme-docs": "^2.13.2",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-error-boundary": "^4.0.11"
   }
 }

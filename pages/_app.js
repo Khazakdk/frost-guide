@@ -1,12 +1,15 @@
-import './styles.css'
-import Script from 'next/script'
- 
+import "./styles.css";
+import Script from "next/script";
+
 // This default export is required in a new `pages/_app.js` file.
 export default function MyApp({ Component, pageProps }) {
   return (
-    <div>
-      <Script src={`https://www.googletagmanager.com/gtag/js?id=${process.env.GA_MEASUREMENT_ID}`} />
-      <Script id="google-analytics">
+    <>
+      <Script
+        strategy="afterInteractive"
+        src={`https://www.googletagmanager.com/gtag/js?id=${process.env.GA_MEASUREMENT_ID}`}
+      />
+      <Script strategy="afterInteractive" id="google-analytics">
         {`
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
@@ -15,13 +18,16 @@ export default function MyApp({ Component, pageProps }) {
           gtag('config', ${process.env.GA_MEASUREMENT_ID});
         `}
       </Script>
-      <Script id="whtooltips">
+      <Script strategy="lazyOnload" id="whtooltips">
         {`
           const whTooltips = {colorLinks: true, iconizeLinks: true, renameLinks: true};
         `}
       </Script>
-      <Script src="https://wow.zamimg.com/js/tooltips.js"/>
+      <Script
+        strategy="lazyOnload"
+        src="https://wow.zamimg.com/js/tooltips.js"
+      />
       <Component {...pageProps} />
-    </div>
-  )
+    </>
+  );
 }
