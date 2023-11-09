@@ -1,8 +1,27 @@
 import "./styles.css";
 import Script from "next/script";
+import { useEffect } from "react";
 
 // This default export is required in a new `pages/_app.js` file.
 export default function MyApp({ Component, pageProps }) {
+  useEffect(() => {
+    // Cleanup function to remove added scripts when the component is unmounted
+    return () => {
+      const googleAnalyticsScript = document.getElementById('google-analytics');
+      const whTooltipsScript = document.getElementById('whtooltips');
+
+      // Remove Google Analytics script
+      if (googleAnalyticsScript) {
+        googleAnalyticsScript.remove();
+      }
+
+      // Remove whTooltips script
+      if (whTooltipsScript) {
+        whTooltipsScript.remove();
+      }
+    };
+  }, []);
+
   return (
     <>
       <Script
