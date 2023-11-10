@@ -1,24 +1,20 @@
 import "./styles.css";
 import Script from "next/script";
 import { useEffect } from "react";
+import { useRouter } from "next/router";
 
 // This default export is required in a new `pages/_app.js` file.
 export default function MyApp({ Component, pageProps }) {
+  const router = useRouter();
+
   useEffect(() => {
-    // Cleanup function to remove added scripts when the component is unmounted
+    const handleRouteChange = () => {
+      router.reload();
+    };
+    router.events.on('routeChangeComplete', handleRouteChange);
     return () => {
-      const googleAnalyticsScript = document.getElementById('google-analytics');
-      const whTooltipsScript = document.getElementById('whtooltips');
-
-      // Remove Google Analytics script
-      if (googleAnalyticsScript) {
-        googleAnalyticsScript.remove();
-      }
-
-      // Remove whTooltips script
-      if (whTooltipsScript) {
-        whTooltipsScript.remove();
-      }
+      // Remove the event listener when the component is unmounted
+      window.events.off('routeChangeComplete', handleRouteChange);
     };
   }, []);
 
@@ -42,7 +38,7 @@ export default function MyApp({ Component, pageProps }) {
           const whTooltips = {colorLinks: true, iconizeLinks: true, renameLinks: true};
         `}
       </Script>
-      <Script
+      <Script id="whscript"
         strategy="lazyOnload"
         src="https://wow.zamimg.com/js/tooltips.js"
       />
