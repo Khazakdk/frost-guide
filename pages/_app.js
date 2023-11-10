@@ -22,7 +22,7 @@ export default function MyApp({ Component, pageProps }) {
     <>
       <Script
         strategy="afterInteractive"
-        src={`https://www.googletagmanager.com/gtag/js?id=${process.env.GA_MEASUREMENT_ID}`}
+        src={`https://www.googletagmanager.com/gtag/js?id=G-17D6NQ4BHT`}
       />
       <Script strategy="afterInteractive" id="google-analytics">
         {`
@@ -30,7 +30,7 @@ export default function MyApp({ Component, pageProps }) {
           function gtag(){dataLayer.push(arguments);}
           gtag('js', new Date());
  
-          gtag('config', ${process.env.GA_MEASUREMENT_ID});
+          gtag('config', G-17D6NQ4BHT);
         `}
       </Script>
       <Script strategy="lazyOnload" id="whtooltips">
